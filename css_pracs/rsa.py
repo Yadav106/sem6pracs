@@ -6,6 +6,7 @@ def find_d(e, t) -> int:
     k = 1
     while True:
         temp = (k * t + 1) / e
+        # print(temp)
         if temp % 1 == 0:
             return temp
         k += 1
@@ -25,6 +26,8 @@ n = p * q
 
 totiont = (p-1) * (q-1)
 
+print("totiont :", totiont)
+
 e = find_e(totiont)
 
 print("e :", e)
@@ -33,8 +36,8 @@ d = find_d(e, totiont)
 
 print("d :", d)
 
-encrypted_msg = (m**e)
-encrypted_msg = math.fmod(encrypted_msg, n)
+# (m ** e) % n
+encrypted_msg = (m**e) % n
 print("encrypted_msg :", encrypted_msg)
 
 decryped_message = (encrypted_msg**d) % n

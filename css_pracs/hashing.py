@@ -1,10 +1,11 @@
 import random
 
 def simple_hash(text):
-    hash_value = random.randint(1, 1000)
+    temp_hash_value = random.randint(1, 1000)
+    hash_value = 0
     
     for char in text:
-        hash_value = (hash_value << 5) + ord(char)
+        hash_value = temp_hash_value + (hash_value << 5) + ord(char)
     
     return hash_value
 

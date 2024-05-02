@@ -38,7 +38,7 @@ def remove_common_subexpression(input):
             if curr[2] in changed:
                 changed.remove(curr[2])
             if curr[4] in changed:
-                changed.remove(4)
+                changed.remove(curr[4])
             continue
 
         if (curr[2] in changed) or (curr[4] in changed):
@@ -47,7 +47,7 @@ def remove_common_subexpression(input):
             if curr[2] in changed:
                 changed.remove(curr[2])
             if curr[4] in changed:
-                changed.remove(4)
+                changed.remove(curr[4])
             continue
 
         j = i-1
@@ -104,4 +104,3 @@ print(remove_common_subexpression(cleaned_input))
 simplified_expressions = simplify_expressions(cleaned_input)
 print("-------------Simplified Output--------------")
 print(simplified_expressions)
-

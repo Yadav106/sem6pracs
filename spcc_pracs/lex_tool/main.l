@@ -6,16 +6,18 @@
   #define NewLine 4
   #define Punc 6
   #define Comment 5
+  #define Literal 8
 %}
 
 %%
 [0-9]+|[0-9]+\.[0-9]+ {return Number;}
 main|int|char|int|void {return Key;}
 [a-zA-z]+[a-zA-Z0-9]* {return ID;}
-\"[^\"\n]*\"  {return NewLine;}
+\[\n]*\  {return NewLine;}
 \<[a-z]\.h\> {return Header;}
-[!@#$^&*(){}:;",./<>?+=-] {return Punc;}
+[!@#$^&*(){}:;,./<>?+=-] {return Punc;}
 \/\/|\/\*+[a-zA-z]+[a-zA-Z0-9]* {return Comment;}
+["][a-zA-Z]*["] {return Literal;}
 %%
 
 #include<stdio.h>
@@ -43,6 +45,9 @@ int main(int arg,char *argv[]) {
         break;
       case 7:
         printf("\n%s - Identifier",yytext);
+        break;
+      case 8:
+        printf("\n%s - Literal",yytext);
         break;
       default:
         printf("Invalid choice");

@@ -61,7 +61,7 @@ class Lexer:
         self.tokens.append(string_token)
         self.consume()
 
-    def parse(self):
+    def scan(self):
         while (not self.is_at_end()):
             char = self.consume()
             if char == '\n': self.line += 1
@@ -76,7 +76,7 @@ def read_file(name):
 
 file = read_file("code.c")
 lexer = Lexer(file)
-lexer.parse()
+lexer.scan()
 
 for i in lexer.tokens:
     print(i)

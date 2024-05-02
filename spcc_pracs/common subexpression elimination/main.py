@@ -72,22 +72,6 @@ def remove_common_subexpression(input):
     res = "\n".join(new_expressions)
     return res
 
-def simplify_expressions(expressions):
-    simplified_expressions = []
-    for expr in expressions:
-        if expr[0] == expr[2] and expr[3] == '+' and expr[4] == '0':
-            simplified_expressions.append(expr[0])
-        elif expr[0] == expr[2] and expr[3] == '-' and expr[4] == '0':
-            simplified_expressions.append(expr[0])
-        elif expr[0] == expr[2] and expr[3] == '*' and expr[4] == '1':
-            simplified_expressions.append(expr[0])
-        elif expr[0] == expr[2] and expr[3] == '/' and expr[4] == '1':
-            simplified_expressions.append(expr[0])
-        else:
-            simplified_expressions.append(expr)
-
-    return simplified_expressions
-
 input_data = []
 print("Enter all expressions, write 'end' when finished")
 while True:
@@ -100,8 +84,4 @@ while True:
 cleaned_input = clean(input_data)
 print("-------------Output--------------")
 print(remove_common_subexpression(cleaned_input))
-
-simplified_expressions = simplify_expressions(cleaned_input)
-print("-------------Simplified Output--------------")
-print(simplified_expressions)
 

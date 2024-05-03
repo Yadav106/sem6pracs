@@ -103,6 +103,7 @@ def Triple(pos):
               print("{0:^4s} | {1:^4s} | {2:^4s}".format(i,op2,op1))
               stack.append("(%s)" %x)
               x = x+1
+
 print("The triple for given expression")
 print("  OP | ARG 1 |ARG 2  ")
 Triple(pos)
